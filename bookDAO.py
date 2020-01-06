@@ -1,7 +1,7 @@
 import mysql.connector
 
 class BookDAO:
-
+# localhost credentials
     db=""
     def __init__(self): 
         self.db = mysql.connector.connect(
