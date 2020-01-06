@@ -178,7 +178,7 @@
 
     }
     function createBookAjax(book){
-        //var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3000}
+        
         console.log(JSON.stringify(book));
         $.ajax({
             "url": "http://127.0.0.1:5000/books",
@@ -199,7 +199,7 @@
         });
     }
     function updateBookAjax(book){
-        //var car = {"reg":"12 D 1234","price":8000}
+        
         console.log(JSON.stringify(book));
         $.ajax({
             "url": "http://127.0.0.1:5000/books/"+encodeURI(book.id),
@@ -208,7 +208,6 @@
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
-               // console.log(result);
                   
             },
             "error":function(xhr,status,error){
@@ -218,7 +217,7 @@
     }
     function deleteBookAjax(id){
         
-        //console.log(JSON.stringify('deleting '+id));
+        
         $.ajax({
             "url": "http://127.0.0.1:5000/books/"+encodeURI(id),
             "method":"DELETE",

@@ -1,13 +1,14 @@
 import mysql.connector
-import dbconfiguration as cfg
+
 class BookDAO:
+
     db=""
     def __init__(self): 
         self.db = mysql.connector.connect(
-        host=       cfg.mysql['host'],
-        user=       cfg.mysql['username'],
-        password=   cfg.mysql['password'],
-        database=   cfg.mysql['database']
+        host = ["localhost"],
+        user = ["root"],
+        password = ["rootuser"],
+        database = ["datarep"]
         )
     
     
