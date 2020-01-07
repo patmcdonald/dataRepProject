@@ -10,9 +10,27 @@ class BookDAO:
         password = ["rootuser"],
         database = ["datarep"]
         )
+
+    def createTable(self):
+        cursor = self.db.cursor()
+        sql="CREATE TABLE books (id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), author VARCHAR(255), year INT)"
+        cursor.execute(sql)
+        self.db.commit()
+        print("Table Created")
+
+
+    def populateTable(self):
+        books=[
+            {"Title":"Dune", "Author":"Frank Herbert", "Year": 1965},
+            {"Title":"The Alchemist", "Author":"Paulo Coelho", "Year": 1988},
+            {"Title":"Deep Work ", "Author":"Cal Newport", "Year": 2016}
+        ]
+
+        cursor = self.db.cursor()
+        cursor.executemany("insert into books (title, author, year) values (%(Title)s,%(Author)s,%(Year)s)", books)
+        self.db.commit()
+      
     
-    
-            
     def create(self, values):
         cursor = self.db.cursor()
         sql="insert into book (title,author, price) values (%s,%s,%s)"
